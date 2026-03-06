@@ -1,0 +1,24 @@
+[meta]
+name        = "cpp"
+description = "C/C++ development environment"
+version     = "1.0.0"
+author      = "dxon"
+
+[base]
+packages = ["curl", "git", "ca-certificates"]
+
+[[prompts]]
+id       = "docker"
+question = "Install Docker CLI tooling inside the container?"
+options  = ["no", "yes"]
+default  = "no"
+
+[[steps]]
+name  = "C/C++ toolchain"
+tools = ["c-compiler", "cpp-compiler", "build-tools", "cmake", "ninja", "debugger", "valgrind", "clang", "llvm"]
+
+[[steps]]
+name  = "Install Docker"
+tools = ["docker", "docker-compose"]
+[steps.when]
+docker = "yes"

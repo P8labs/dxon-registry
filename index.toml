@@ -1,0 +1,24 @@
+[[templates]]
+name        = "nodejs"
+description = "Node.js - choose pnpm / yarn / bun / npm"
+file        = "templates/nodejs.dx"
+
+[[templates]]
+name        = "rust"
+description = "Rust - rustup, cargo, clippy, rustfmt"
+file        = "templates/rust.dx"
+
+[[templates]]
+name        = "go"
+description = "Go - Go toolchain"
+file        = "templates/go.dx"
+
+[[templates]]
+name        = "cpp"
+description = "C/C++ - gcc, cmake, ninja, gdb, clang"
+file        = "templates/cpp.dx"
+
+[[templates]]
+name        = "python"
+description = "Python - choose pip / poetry / uv"
+file        = "templates/python.dx"
