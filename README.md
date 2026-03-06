@@ -74,13 +74,13 @@ nothing fancy.
 once dxon is configured with this registry you can run:
 
 ```
-dxon create project --template node
+dxon create project --template nodejs
 ```
 
 or use the raw template:
 
 ```
-dxon create mw1 --template https://raw.githubusercontent.com/P8labs dxon-registry/master/templates/node.yaml
+dxon create mw1 --template https://raw.githubusercontent.com/P8labs/dxon-registry/master/templates/nodejs.yaml
 ```
 
 
