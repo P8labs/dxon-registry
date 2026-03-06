@@ -1,0 +1,45 @@
+schema: dxon/v1
+name: python
+description: Python development environment
+
+packages:
+  arch:   [curl, git]
+  debian: [curl, git, ca-certificates]
+  alpine: [curl, git, ca-certificates]
+
+options:
+  - id: env_manager
+    prompt: "Which Python environment manager would you prefer?"
+    choices: [pip, poetry, uv]
+    default: pip
+
+  - id: docker
+    prompt: "Install Docker CLI tooling inside the container?"
+    choices: ["no", "yes"]
+    default: "no"
+
+steps:
+  - name: Install Python
+    tools: [python3, pip]
+
+  - name: Create python symlink
+    distro: debian
+    run:
+      - ln -sf /usr/bin/python3 /usr/local/bin/python
+
+  - name: Install poetry
+    run:
+      - python3 -m pip install --break-system-packages poetry || python3 -m pip install poetry
+    when:
+      env_manager: poetry
+
+  - name: Install uv
+    run:
+      - python3 -m pip install --break-system-packages uv || python3 -m pip install uv
+    when:
+      env_manager: uv
+
+  - name: Install Docker
+    tools: [docker, docker-compose]
+    when:
+      docker: "yes"

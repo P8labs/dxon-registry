@@ -1,0 +1,82 @@
+{
+  "templates": [
+    {
+      "name": "nodejs",
+      "description": "Node.js development environment — choose npm / pnpm / yarn / bun",
+      "path": "templates/nodejs.yaml",
+      "tags": [
+        "javascript",
+        "typescript",
+        "node",
+        "npm"
+      ],
+      "distros": [
+        "arch",
+        "debian",
+        "alpine"
+      ]
+    },
+    {
+      "name": "rust",
+      "description": "Rust development environment — rustup, cargo, clippy, rustfmt",
+      "path": "templates/rust.yaml",
+      "tags": [
+        "rust",
+        "cargo",
+        "systems"
+      ],
+      "distros": [
+        "arch",
+        "debian",
+        "alpine"
+      ]
+    },
+    {
+      "name": "go",
+      "description": "Go development environment — Go toolchain and workspace",
+      "path": "templates/go.yaml",
+      "tags": [
+        "go",
+        "golang"
+      ],
+      "distros": [
+        "arch",
+        "debian",
+        "alpine"
+      ]
+    },
+    {
+      "name": "python",
+      "description": "Python development environment — choose pip / poetry / uv",
+      "path": "templates/python.yaml",
+      "tags": [
+        "python",
+        "pip",
+        "poetry",
+        "uv"
+      ],
+      "distros": [
+        "arch",
+        "debian",
+        "alpine"
+      ]
+    },
+    {
+      "name": "cpp",
+      "description": "C/C++ development environment — gcc, cmake, ninja, gdb, clang, llvm",
+      "path": "templates/cpp.yaml",
+      "tags": [
+        "c",
+        "cpp",
+        "c++",
+        "cmake",
+        "clang"
+      ],
+      "distros": [
+        "arch",
+        "debian",
+        "alpine"
+      ]
+    }
+  ]
+}

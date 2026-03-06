@@ -1,0 +1,46 @@
+schema: dxon/v1
+name: nodejs
+description: Node.js development environment
+
+packages:
+  arch:   [curl, git, nodejs, npm]
+  debian: [curl, git, ca-certificates, nodejs, npm]
+  alpine: [curl, git, ca-certificates, nodejs, npm]
+
+env:
+  NODE_ENV: development
+
+options:
+  - id: pkg_manager
+    prompt: "Which package manager would you like to use?"
+    choices: [npm, pnpm, yarn, bun]
+    default: npm
+
+  - id: docker
+    prompt: "Install Docker CLI tooling inside the container?"
+    choices: ["no", "yes"]
+    default: "no"
+
+steps:
+  - name: Install pnpm
+    run:
+      - npm install -g pnpm
+    when:
+      pkg_manager: pnpm
+
+  - name: Install yarn
+    run:
+      - npm install -g yarn
+    when:
+      pkg_manager: yarn
+
+  - name: Install bun
+    run:
+      - npm install -g bun
+    when:
+      pkg_manager: bun
+
+  - name: Install Docker
+    tools: [docker, docker-compose]
+    when:
+      docker: "yes"

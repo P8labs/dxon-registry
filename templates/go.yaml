@@ -1,0 +1,26 @@
+schema: dxon/v1
+name: go
+description: Go development environment
+
+packages:
+  arch:   [curl, git]
+  debian: [curl, git, ca-certificates]
+  alpine: [curl, git, ca-certificates]
+
+env:
+  GOPATH: /root/go
+
+options:
+  - id: docker
+    prompt: "Install Docker CLI tooling inside the container?"
+    choices: ["no", "yes"]
+    default: "no"
+
+steps:
+  - name: Install Go
+    tools: [go]
+
+  - name: Install Docker
+    tools: [docker, docker-compose]
+    when:
+      docker: "yes"

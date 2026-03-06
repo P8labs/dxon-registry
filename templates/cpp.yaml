@@ -1,0 +1,23 @@
+schema: dxon/v1
+name: cpp
+description: C/C++ development environment
+
+packages:
+  arch:   [curl, git]
+  debian: [curl, git, ca-certificates]
+  alpine: [curl, git, ca-certificates]
+
+options:
+  - id: docker
+    prompt: "Install Docker CLI tooling inside the container?"
+    choices: ["no", "yes"]
+    default: "no"
+
+steps:
+  - name: C/C++ toolchain
+    tools: [c-compiler, cpp-compiler, build-tools, cmake, ninja, debugger, valgrind, clang, llvm]
+
+  - name: Install Docker
+    tools: [docker, docker-compose]
+    when:
+      docker: "yes"
